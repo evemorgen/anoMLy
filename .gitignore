@@ -1,0 +1,9 @@
+**/ENV
+**/data
+**/output
+**/configs
+**/__pycache__
+
+**/*.sw[po]
+.vscode
+
