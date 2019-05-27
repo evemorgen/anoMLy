@@ -100,7 +100,9 @@ class SoiaEmailFetcher(sqla.CopyToTable):
                         start, end = dates.rsplit("-", maxsplit=1)
                         if " " not in end.strip():
                             end = f"{date.year}-{date.month}-{date.day} {end}"
-
+                        if " " not in start.strip():
+                            start = f"{date.year}-{date.month}-{date.day} {start}"
+                        
                         parsed_start = dateparser.parse(start)
                         parsed_end = dateparser.parse(end)
                         if parsed_end is None or parsed_start is None:
