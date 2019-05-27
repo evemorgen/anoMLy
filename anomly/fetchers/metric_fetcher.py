@@ -20,7 +20,7 @@ class MetricFetcher(Task):
         return ElasticPathsFetcher(monitoring_key=self.path_prefix)
 
     def output(self):
-        return MockFile("metrics", mirror_on_stderr=True)
+        return MockFile("metrics", mirror_on_stderr=False)
 
     def run(self):
         _out = self.output().open('w')
