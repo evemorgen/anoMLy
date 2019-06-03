@@ -3,7 +3,9 @@
 **/output
 **/configs
 **/__pycache__
+**/*.pyc
 
 **/*.sw[po]
 .vscode
+**/.vscode
 

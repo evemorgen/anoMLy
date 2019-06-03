@@ -26,8 +26,6 @@ class SoiaMetricsFetcher(sqla.CopyToTable):
         (["path", Text()], {}),
         (["metric_anomaly", Text()], {}),
         (["metric_whole", Text()], {})
-
-        
     ]
     connection_string = "sqlite:///data/soia_email.db"
     table = "soia_with_values"
@@ -69,9 +67,8 @@ class SoiaMetricsFetcher(sqla.CopyToTable):
                 for metric in metrics:
                     shorter = list(filter(lambda tup: tup[1] >= start and tup[1] <= end, metric['datapoints']))
                     formed_rows.append(
-                        (start, end,  metric['target'], json.dumps(shorter), json.dumps(metric['datapoints']))
+                        (start, end, metric['target'], json.dumps(shorter), json.dumps(metric['datapoints']))
                     )
                     print(len(formed_rows[0]))
 
         return formed_rows
-
